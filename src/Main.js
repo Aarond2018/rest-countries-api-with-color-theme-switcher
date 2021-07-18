@@ -92,7 +92,7 @@ class Country extends React.Component {
           </div>
           <div className={!this.props.state.isDarkMode?"country-details":"country-details country-details-dark color-white"}>
             <h4>{this.props.name}</h4>
-            <p><span>Population:</span> {this.props.population}</p>
+            <p><span>Population:</span> {this.props.population.toLocaleString()}</p>
             <p><span>Region:</span> {this.props.region}</p>
             <p><span>Capital:</span> {this.props.capital}</p>
           </div>
