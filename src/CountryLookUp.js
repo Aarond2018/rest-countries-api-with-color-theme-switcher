@@ -10,7 +10,7 @@ class CountryLookUp extends Component {
       this.setState( {country: obj} )
   }
 
-  render() {console.log(this.state.country[0])
+  render() {
     return (
       <div className={!this.props.state.isDarkMode?"countryView":"countryView bg-dark"}>
         <Link to="/" onClick={this.props.reset}>
@@ -36,12 +36,12 @@ class CountryLookUp extends Component {
               <div className="text-two">
                 <p><span>Top Level Domain:</span> {this.state.country[0].tld[0]}</p>
                 <p><span>Currencies:</span> {this.state.country[0].currencies[Object.keys(this.state.country[0].currencies)[0]].name}</p>
-                {/* <p><span>Languages:</span> {this.state.country[0].languages.map(cr => cr.name + ", ")} </p> */} 
+                <p><span>Languages:</span> {Object.entries(this.state.country[0].languages).map(r => ( r[1] + ", "))} </p> 
               </div>
             </div>
             <div className="border-countries">
               <div><h5>Border Countries:</h5> 
-                {this.state.country[0]?.borders.map(cr =>  {
+                {this.state.country[0]?.borders?.map(cr =>  {
                   const obj = JSON.parse(localStorage.getItem("data")).filter(c => c?.cca3 === cr)
                   
                   return <Link to="/countryView" onClick={()=>{this.handleNav(obj)}} key={obj[0].name.common}>
