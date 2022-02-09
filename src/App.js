@@ -83,7 +83,7 @@ class App extends React.Component {
               <Main state={this.state} handleSearch={this.handleSearch} handleRegionFilter={this.handleRegionFilter} handleCountryOpen={this.handleCountryOpen}/>
             </Route>
             <Route exact path="/countryview">
-              {/* <CountryLookUp state={this.state} reset={this.handleReset}/> */}
+              <CountryLookUp state={this.state} reset={this.handleReset}/>
             </Route>
           </Switch>
         </div>  

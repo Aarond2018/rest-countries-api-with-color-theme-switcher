@@ -76,7 +76,7 @@ class Country extends React.Component {
     this.props.handleCountryOpen(name)
   }
 
-  render() {console.log(this.props.capital) 
+  render() {
     return (
       <Link to="/countryview" onClick={()=>{this.handleCountryOpen(this.props.name)}}>
         <li className={!this.props.state.isDarkMode?"":"li-dark"}>
