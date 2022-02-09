@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import Main from './Main';
@@ -22,7 +21,6 @@ class App extends React.Component {
       ulDark: "ul-dark",
       liDark: "li-dark",
       countryDetailsDark: "country-details-dark",
-
     },
     isDarkMode: false
   }
@@ -42,9 +40,7 @@ class App extends React.Component {
   handleSearch = (e) => {
     let filteredArr = this.state.countries
 
-    /* const filteredArr = e.target.value ? this.state.countries.filter(ct => ct.name.includes(e.target.value)) : this.state.countries; */
     filteredArr = this.state.tempCountries.filter(obj => obj.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
-
 
     this.setState( {countries: filteredArr} )
   }
@@ -60,10 +56,8 @@ class App extends React.Component {
 
     filteredArr = this.state.tempCountries.filter(obj => obj.name.common === name)
 
-    /* console.log(filteredArr) */
     localStorage.setItem("state", JSON.stringify(filteredArr))
     localStorage.setItem("data", JSON.stringify(this.state.auxCountries))
-    /* this.setState( {countries: filteredArr} ) */
   }
 
   handleReset = () => {

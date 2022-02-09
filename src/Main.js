@@ -7,7 +7,6 @@ class Main extends React.Component {
     filterOpen: false
   }
 
-
   handleFilterToggle = () => {
     this.setState( {filterOpen: !this.state.filterOpen} )
   }
