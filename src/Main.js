@@ -7,14 +7,6 @@ class Main extends React.Component {
     filterOpen: false
   }
 
-  /* componentDidMount(){
-    fetch("https://restcountries.eu/rest/v2/all")
-    .then((res) => res.json())
-    .then(data => {
-      this.setState( {countries: data, tempCountries: data} )
-    })
-  } */
-
 
   handleFilterToggle = () => {
     this.setState( {filterOpen: !this.state.filterOpen} )
@@ -56,15 +48,16 @@ class Main extends React.Component {
 }
 
 class CountryList extends React.Component {
+  
   render() {
-    const countryComp = this.props.countries.map(country => (
+    const countryComp = this.props?.countries.map(country => (
       <Country
-        key={country.name} 
-        flag={country.flag}
-        name={country.name}
+        key={country.name.common} 
+        flag={country.flags.png}
+        name={country.name.common}
         population={country.population}
         region={country.region}
-        capital={country.capital}
+        capital={country.capital ? country.capital[0] : ""}
         state={this.props.state}
         handleCountryOpen={this.props.handleCountryOpen}
       />
@@ -83,7 +76,7 @@ class Country extends React.Component {
     this.props.handleCountryOpen(name)
   }
 
-  render() {
+  render() {console.log(this.props.capital) 
     return (
       <Link to="/countryview" onClick={()=>{this.handleCountryOpen(this.props.name)}}>
         <li className={!this.props.state.isDarkMode?"":"li-dark"}>

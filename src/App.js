@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch("https://restcountries.eu/rest/v2/all")
+    fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
     .then(data => {
       this.setState( {countries: data, tempCountries: data, auxCountries: data} )
@@ -43,7 +43,7 @@ class App extends React.Component {
     let filteredArr = this.state.countries
 
     /* const filteredArr = e.target.value ? this.state.countries.filter(ct => ct.name.includes(e.target.value)) : this.state.countries; */
-    filteredArr = this.state.tempCountries.filter(obj => obj.name.toLowerCase().includes(e.target.value.toLowerCase()))
+    filteredArr = this.state.tempCountries.filter(obj => obj.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
 
 
     this.setState( {countries: filteredArr} )
@@ -58,7 +58,7 @@ class App extends React.Component {
   handleCountryOpen = (name) => {
     let filteredArr = this.state.tempCountries
 
-    filteredArr = this.state.tempCountries.filter(obj => obj.name === name)
+    filteredArr = this.state.tempCountries.filter(obj => obj.name.common === name)
 
     /* console.log(filteredArr) */
     localStorage.setItem("state", JSON.stringify(filteredArr))
@@ -83,7 +83,7 @@ class App extends React.Component {
               <Main state={this.state} handleSearch={this.handleSearch} handleRegionFilter={this.handleRegionFilter} handleCountryOpen={this.handleCountryOpen}/>
             </Route>
             <Route exact path="/countryview">
-              <CountryLookUp state={this.state} reset={this.handleReset}/>
+              {/* <CountryLookUp state={this.state} reset={this.handleReset}/> */}
             </Route>
           </Switch>
         </div>  

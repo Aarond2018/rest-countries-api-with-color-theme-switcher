@@ -21,20 +21,20 @@ class CountryLookUp extends Component {
         </Link>
         <div className="main-country">
           <div className="main-country__img">
-            <img src={this.state.country[0].flag} alt="img"></img>
+            <img src={this.state.country[0].flags.svg} alt="img"></img>
           </div>
           <div className="main-country__details">
             <h2>{this.state.country[0].name}</h2>
             <div className="main-country__text">
               <div className="text-one">
-                <p><span>Native Name:</span> {this.state.country[0].nativeName}</p>
+                <p><span>Native Name:</span> {this.state.country[0].name.nativeName}</p>
                 <p><span>Population:</span> {this.state.country[0].population.toLocaleString()}</p>
                 <p><span>Region</span> {this.state.country[0].region}</p>
                 <p><span>Sub region:</span> {this.state.country[0].subregion}</p>
-                <p><span>Capital:</span> {this.state.country[0].capital}</p>
+                <p><span>Capital:</span> {this.state.country[0].capital[0]}</p>
               </div>
               <div className="text-two">
-                <p><span>Top Level Domain:</span> {this.state.country[0].topLevelDomain}</p>
+                <p><span>Top Level Domain:</span> {this.state.country[0].tld[0]}</p>
                 <p><span>Currencies:</span> {this.state.country[0].currencies.map(cr => cr.name)}</p>
                 <p><span>Languages:</span> {this.state.country[0].languages.map(cr => cr.name + ", ")} </p> 
               </div>
